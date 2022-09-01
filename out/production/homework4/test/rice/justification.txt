@@ -1,0 +1,132 @@
+This is my justification file. Enjoy.
+A good test suite includes tests that cover:
+Typical cases
+Edge cases or boundary cases: inputs that are on the edge of where the program’s control flow or behavior changes
+(sometimes) invalid inputs
+(sometimes) checks for unexpected side effects
+
+1) ConciseSetGenerator
+    - input test case consists of all PyBoolObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input small test case consists of all PyFloatObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input small test case consists of all PyIntObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input small test case consists of PyBoolObjs, PyFloatObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input small test case consists of PyBoolObjs, PyIntObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input small test case consists of PyFloatObjs, PyIntObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input small test case consists of PyBoolObjs, PyFloatObjs, PyIntObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input large test case consists of one type, example: PyFloatOBjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input large test case consists of two types, example: PyIntObjs, PyFloatObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+    - input large test case consists of all three types: PyBoolObjs, PyFloatObjs, PyIntObjs
+        - test setCover() in the case that all tests are needed to get coverage
+        - test setCover() in the case that the given TestResults is empty
+        - test that the inputed TestResults object is the same after setCover() is run on it
+            (ensures that TestResults was not mutated)
+
+2) PyBoolNode
+    - test getExDomain()
+        - returns null when domain was not previously set
+        - returns [0, 1] when given a test of PyBoolObjs [0, 1]
+        - returns [1, 0] when given a test of PyBoolObjs [1, 0]
+
+    - test (setExDomain(), getExDomain())
+        - when setExDomain() is passed [0, 1], getExDomain() returns [0, 1]
+        - when setExDomain() is passed [1, 0], getExDomain() returns [1, 0]
+
+
+    - test getRanDomain()
+        - returns null when domain was not previously set
+
+    - test (setRanDomain(), getRanDomain())
+
+    - test getLeftChild()
+        - returns null
+
+    - test getRightChild()
+        - returns null
+
+    - test genExVals()
+        Typical Case:
+        - PyBoolNode with an exhaustive domain of [0, 1] should generate a set of PyBoolObjs
+            representing the Python values {True, False} when genExVals() is invoked
+
+3) PyIntNode
+    - test getExDomain()
+        - returns null when domain was not previously set
+
+    - test (setExDomain(), getExDomain())
+
+    - test getRanDomain()
+        - returns null when domain was not previously set
+
+    - test (setRanDomain(), getRanDomain())
+
+    - test getLeftChild()
+        - returns null
+
+    - test getRightChild()
+        - returns null
+
+    - test genExVals()
+        Typical Case:
+        - PyIntNode with an exhaustive domain of [1, 2, 3] should generate a set of PyIntObjs
+            representing the Python values {1, 2, 3} when genExVals() is invoked
+
+4) PyFloatNode
+    - test getExDomain()
+        - returns null when domain was not previously set
+
+    - test (setExDomain(), getExDomain())
+
+    - test getRanDomain()
+        - returns null when domain was not previously set
+
+    - test (setRanDomain(), getRanDomain())
+
+    - test getLeftChild()
+        - returns null
+
+    - test getRightChild()
+        - returns null
+
+    - test genExVals()
+        Typical Case:
+        - PyFloatNode with an exhaustive domain of [1, 0.1, -3.8, 7.2] should generate a set
+            of PyFloatObjs representing the Python values {1.0, 0.1, -3.8, 7.2} when genExVals()
+            is invoked
+
+5) Discuss how to deal with randomness in the genRandVal() method.
